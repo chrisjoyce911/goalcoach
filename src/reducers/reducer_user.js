@@ -11,8 +11,10 @@ export default (state = user, action) => {
             user = {
                 email
             }
+            console.log("return user in reducer_user.jsx", user);
             return user;
         default:
-            return state;
+            console.log("return state in reducer_user.jsx", user);
+            return user;
     }
 }

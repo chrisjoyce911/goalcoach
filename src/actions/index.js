@@ -8,7 +8,7 @@ export function logUser(email) {
     return action;
 }
 
-export function setGoald(goals) {
+export function setGoals(goals) {
     const action = {
         type: SET_GOALS,
         goals

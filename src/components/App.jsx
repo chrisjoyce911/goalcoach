@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { firebaseApp } from '../firebase';
 
 import AddGoal from './AddGoal';
-
+import GoalList from './GoalList';
 
 class App extends Component {
 
@@ -16,10 +16,10 @@ class App extends Component {
         return (
             <div style={{ margin: '5px' }}>
                 <h3>Goal Coach</h3>
-                <AddGoal></AddGoal>
+                <AddGoal />
                 <hr />
                 <h4>Goals</h4>
-                <div>Goal List</div>
+                <GoalList />
                 <hr />
                 <h4>Complete Goals</h4>
                 <div>Complete Goal</div>

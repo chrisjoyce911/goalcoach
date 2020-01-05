@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { completeGoalRef, goalRef } from '../firebase';
+import { completeGoalRef } from '../firebase';
 
 class GoalItem extends Component {
     completeGoal() {
         // add to complete goals on the database
         // remove this goal from the goals reference
         const { email } = this.props.user;
-        const { title, serverKey } = this.props.goal;
-        goalRef.child(serverKey).remove();
+        const { title } = this.props.goal;
         completeGoalRef.push({ email, title });
     }
 
@@ -18,6 +17,12 @@ class GoalItem extends Component {
             <div style={{ margin: '5px' }}>
                 <strong>{title}</strong>
                 <span style={{ marginRight: '5px' }}> submitted by <em>{email}</em></span>
+                <button
+                    className="btn btn-sm btn-primary"
+                    onClick={() => this.completeGoal()}
+                >
+                    Complete
+        </button>
             </div>
         )
     }

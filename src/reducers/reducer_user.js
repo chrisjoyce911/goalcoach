@@ -11,10 +11,10 @@ export default (state = user, action) => {
             user = {
                 email
             }
-            console.log("return user in reducer_user.jsx", user);
+            // console.log("return user in reducer_user.jsx", user);
             return user;
         default:
-            console.log("return state in reducer_user.jsx", user);
-            return user;
+            // console.log("return state in reducer_user.jsx", state);
+            return state;
     }
 }

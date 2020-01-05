@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { goalRef } from '../firebase';
 import { setGoals } from '../actions';
-
+import GoalItem from './GoalItem';
 
 class GoalList extends Component {
-
     componentDidMount() {
         goalRef.on('value', snap => {
             let goals = [];
@@ -13,7 +12,6 @@ class GoalList extends Component {
                 const { email, title } = goal.val();
                 goals.push({ email, title });
             })
-            console.log('goals', goals);
             this.props.setGoals(goals);
         })
     }
@@ -21,7 +19,13 @@ class GoalList extends Component {
     render() {
         return (
             <div>
-                Goal List
+                {
+                    this.props.goals.map((goal, index) => {
+                        return (
+                            <GoalItem key={index} goal={goal} />
+                        )
+                    })
+                }
             </div>
         )
     }
